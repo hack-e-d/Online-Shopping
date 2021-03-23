@@ -21,6 +21,9 @@ public class AuthenticationOperationsImpl implements AuthenticationOperations {
             System.out.println("User ID dose not exits\nRegister if not already a registered user\n(or) \nEnter an existing User ID : ");
             userId = scanner.next();
         }
+        if(!registerService.userIdExists(userId)){
+            return null;
+        }
         System.out.println("Enter the password : ");
         password = scanner.next();
         if(authenticateLogin(userId,password)){
@@ -41,10 +44,5 @@ public class AuthenticationOperationsImpl implements AuthenticationOperations {
             return (resultSet.getString(1).equals(password));
         }
         return false;
-    }
-
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        AuthenticationOperationsImpl authenticationOperations=new AuthenticationOperationsImpl();
-        System.out.println(authenticationOperations.login());
     }
 }

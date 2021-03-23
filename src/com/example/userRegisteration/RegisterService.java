@@ -11,21 +11,6 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class RegisterService {
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        RegisterService registerService=new RegisterService();
-//        User testUser =registerService.initialiseUser("vicar","p","v",
-//                "q123",0,"1234567890","asd@gmail.com","asd123");
-        Map<String,Object> userInputHashMap = registerService.getUserInput();
-        User testUser =registerService.initialiseUserFromHashMap(userInputHashMap);
-        RegistrationImpl registration=new RegistrationImpl();
-        try {
-            System.out.println( registration.signUp(testUser));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
     public String checkNull(String s){
         if(s!=null){
             return s;

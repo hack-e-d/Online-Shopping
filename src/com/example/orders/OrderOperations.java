@@ -9,5 +9,7 @@ public interface OrderOperations {
     public List<Purchase> viewOders(String userId) throws SQLException,ClassNotFoundException;
     public boolean addToCart(String productId,int count,List<Purchase> purchasesArrayList);
     public void viewCart(List<Purchase> purchaseList) throws SQLException, ClassNotFoundException;
+    public boolean makePurchase(List<Purchase> purchaseList) throws SQLException,ClassNotFoundException;
+    public void clearCart(List<Purchase> purchasesList);
 }
 
