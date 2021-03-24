@@ -12,29 +12,6 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class ProductService {
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        ProductService productService=new ProductService();
-        ProductOperationsImpl productOperations = new ProductOperationsImpl();
-//        Product testProduct=productService.initialiseProduct("a345","p08","Oneplus",
-//                "Mobile Phone","electronics",50000);
-        Map<String,Object> productDetailsFromUser = productService.getUserInput();
-        Product testProduct=productService.initialiseProductFromHashMap(productDetailsFromUser);
-
-        List<Product> productList = null;
-        try {
-            productOperations.addProduct(testProduct);
-            productList=productOperations.getProducts();
-            productOperations.displayProducts(productList);
-            productOperations.deleteProduct();
-            productList=productOperations.getProducts();
-            productOperations.displayProducts(productList);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
-    }
 
     public String checkNull(String s){
         if(s!=null){
@@ -80,19 +57,19 @@ public class ProductService {
         double price;
         Scanner scanner=new Scanner(System.in);
         System.out.println("Enter the Vendor ID");
-        userId=scanner.next();
+        userId=scanner.nextLine();
         System.out.println("Enter the Product ID");
-        productId=scanner.next();
+        productId=scanner.nextLine();
         while(productIdExists(productId)){
             System.out.println("This User ID is taken \nEnter a different User ID");
-            productId=scanner.next();
+            productId=scanner.nextLine();
         }
         System.out.println("Enter the Product Name");
-        productName=scanner.next();
+        productName=scanner.nextLine();
         System.out.println("Enter the Product Description");
-        productDescription=scanner.next();
+        productDescription=scanner.nextLine();
         System.out.println("Enter the Product Category");
-        productCategory=scanner.next();
+        productCategory=scanner.nextLine();
         System.out.println("Enter the Price");
         price=scanner.nextDouble();
         userInputHashMap.put("user_id", userId);
